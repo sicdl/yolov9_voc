@@ -99,7 +99,10 @@ def run(
 
         # NMS
         with dt[2]:
-            pred = non_max_suppression(pred, conf_thres, iou_thres, classes, agnostic_nms, max_det=max_det)
+            print(len(pred))
+            for i, det in enumerate(pred):
+                print('2222',len(det))
+                pred[i] = non_max_suppression(det, conf_thres, iou_thres, classes, agnostic_nms, max_det=max_det)
 
         # Second-stage classifier (optional)
         # pred = utils.general.apply_classifier(pred, classifier_model, im, im0s)
